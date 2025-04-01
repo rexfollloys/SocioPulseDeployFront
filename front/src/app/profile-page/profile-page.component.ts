@@ -83,7 +83,7 @@ upgradeAccount(data: any): void {
     console.log('Payload pour la mise à jour du compte:', payload);
 
     // Envoyer la requête HTTP avec le payload
-    this.http.post('http://localhost:8000/api/upgradeRequete', payload, { headers })
+    this.http.post('https://deploytestback-x8ma.onrender.com/api/upgradeRequete', payload, { headers })
       .subscribe(response => {
         console.log('Compte amélioré avec succès', response);
       }, error => {
@@ -97,7 +97,7 @@ upgradeAccount(data: any): void {
     const token = sessionStorage.getItem('auth_token');
     if (userId && token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      this.http.post('http://localhost:8000/api/deleteUser', { user_id: userId }, { headers })
+      this.http.post('https://deploytestback-x8ma.onrender.com/api/deleteUser', { user_id: userId }, { headers })
         .subscribe(response => {
           console.log('Compte supprimé avec succès', response);
           sessionStorage.clear();

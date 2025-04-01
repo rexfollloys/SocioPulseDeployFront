@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminService {
-    private apiUrl = 'http://127.0.0.1:8000/api';
+    private apiUrl = 'https://deploytestback-x8ma.onrender.com/api';
     private tokenKey = 'auth_token';
 
     constructor(private http: HttpClient) {}
@@ -15,19 +15,19 @@ export class AdminService {
     private getAuthHeaders(): HttpHeaders {
         const token = sessionStorage.getItem('auth_token');
         const role = sessionStorage.getItem('role'); // Récupération du rôle
-    
+
         let headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
         if (role) {
           headers = headers.set('role', role); // Ajout du rôle dans les headers
         }
         return headers;
       }
-    
+
     // Récupérer le token
     getToken(): string | null {
         return sessionStorage.getItem(this.tokenKey);
     }
-    
+
     getRoles(): Observable<any> {
         const headers = this.getAuthHeaders();
         return this.http.get(`${this.apiUrl}/roles`, { headers });
@@ -52,7 +52,7 @@ export class AdminService {
         const headers = this.getAuthHeaders();
         return this.http.put(`${this.apiUrl}/roles/${roleId}/permissions`, { permissions }, { headers });
       }
-    
+
 
     deleteUser(userId: number): Observable<any> {
         return this.http.delete(`${this.apiUrl}/users/${userId}`);

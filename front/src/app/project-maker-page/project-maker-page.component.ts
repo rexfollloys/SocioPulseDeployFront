@@ -111,7 +111,7 @@ export class ProjectMakerPageComponent implements OnInit {
   }
 
   private loadEntreprises(): void {
-    this.http.get<any[]>('http://localhost:8000/api/entreprises')
+    this.http.get<any[]>('https://deploytestback-x8ma.onrender.com/api/entreprises')
       .subscribe(data => {
         this.entreprises = data;
       }, error => {
@@ -133,7 +133,7 @@ export class ProjectMakerPageComponent implements OnInit {
       console.log('Project data:', this.project);
 
 
-      this.http.post('http://localhost:8000/api/projects', this.project, { headers }).subscribe(
+      this.http.post('https://deploytestback-x8ma.onrender.com/api/projects', this.project, { headers }).subscribe(
       response => console.log(response),
       error => console.log(error));
       this.router.navigate(['/']);

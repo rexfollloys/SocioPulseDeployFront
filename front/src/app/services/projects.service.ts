@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProjectsService {
-  private apiUrl = 'http://localhost:8000/api/projects';
+  private apiUrl = 'https://deploytestback-x8ma.onrender.com/api/projects';
 
   constructor(private http: HttpClient) { }
 

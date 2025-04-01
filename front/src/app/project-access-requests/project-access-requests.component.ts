@@ -50,7 +50,7 @@ getUserData(): void {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     // L'API doit renvoyer les demandes d'accès en fonction du rôle et de l'entreprise
-    this.http.get<any[]>('http://localhost:8000/api/projects/access-requests', { headers })
+    this.http.get<any[]>('https://deploytestback-x8ma.onrender.com/api/projects/access-requests', { headers })
       .subscribe(
         (requests) => {
           console.log('Données récupérées :', requests);
@@ -90,7 +90,7 @@ getUserData(): void {
     const token = sessionStorage.getItem('auth_token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    this.http.post(`http://localhost:8000/api/projects/${request.project_id}/access-requests/${request.id}/approve`, {}, { headers })
+    this.http.post(`https://deploytestback-x8ma.onrender.com/api/projects/${request.project_id}/access-requests/${request.id}/approve`, {}, { headers })
       .subscribe(response => {
         console.log('Demande approuvée', response);
         this.toastr.success("Demande approuvée avec succès");
@@ -108,7 +108,7 @@ getUserData(): void {
     const token = sessionStorage.getItem('auth_token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    this.http.post(`http://localhost:8000/api/projects/${request.project_id}/access-requests/${request.id}/reject`, {}, { headers })
+    this.http.post(`https://deploytestback-x8ma.onrender.com/api/projects/${request.project_id}/access-requests/${request.id}/reject`, {}, { headers })
       .subscribe(response => {
         console.log('Demande rejetée', response);
         this.toastr.info("Demande rejetée");

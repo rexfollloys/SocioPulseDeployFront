@@ -7,7 +7,7 @@ import { Observable, of, firstValueFrom } from 'rxjs';
 })
 
 export class AuthService {
-    private baseUrl = 'http://localhost:8000/api';
+    private baseUrl = 'https://deploytestback-x8ma.onrender.com/api';
     private tokenKey = 'auth_token'; // Clé pour stocker le token
 
     constructor(private http: HttpClient) {}

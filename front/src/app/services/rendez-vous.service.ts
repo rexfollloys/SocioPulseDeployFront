@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class RendezVousService {
 
-  private apiUrl = 'http://localhost:8000/api/projects';  // Replace with your actual API URL
+  private apiUrl = 'https://deploytestback-x8ma.onrender.com/api/projects';  // Replace with your actual API URL
 
   constructor(private http: HttpClient) {}
 
@@ -24,10 +24,10 @@ export class RendezVousService {
   getRendezVous(projectId: number): Observable<any> {
     const headers = this.getAuthHeaders();
     console.log('En-têtes utilisés pour la requête:', headers);  // Ajoutez ce log pour vérifier les en-têtes
-  
+
     return this.http.get<any>(`${this.apiUrl}/${projectId}/rendez-vous`, { headers });
   }
-  
+
   // Create a new appointment for a project
   createRendezVous(projectId: number, data: any): Observable<any> {
     const headers = this.getAuthHeaders();
@@ -50,10 +50,10 @@ export class RendezVousService {
     const headers = this.getAuthHeaders();
     return this.http.post(`${this.apiUrl}/rendez-vous/${id}/accept`, {}, { headers });
   }
-  
+
   rejectRendezVous(id: number): Observable<any> {
     const headers = this.getAuthHeaders();
     return this.http.post(`${this.apiUrl}/rendez-vous/${id}/reject`, {}, { headers });
   }
-   
+
 }

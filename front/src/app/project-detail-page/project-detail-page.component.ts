@@ -95,7 +95,7 @@ public checkUserAccess(): void {
   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
   // Vérification dans la table pdf_access_requests
-  this.http.get<any[]>(`http://localhost:8000/api/projects/${projectId}/access-requests`, { headers })
+  this.http.get<any[]>(`https://deploytestback-x8ma.onrender.com/api/projects/${projectId}/access-requests`, { headers })
     .subscribe(requests => {
       const userRequest = requests.find(req => req.user_id == userId && req.status === 'approved');
 
@@ -116,7 +116,7 @@ public checkUserAccess(): void {
 
     if (projectId && token) {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      this.http.delete(`http://localhost:8000/api/projects/${projectId}`, { headers })
+      this.http.delete(`https://deploytestback-x8ma.onrender.com/api/projects/${projectId}`, { headers })
         .subscribe(() => {
           console.log('Projet supprimé avec succès');
           this.router.navigate(['/']);
@@ -139,7 +139,7 @@ public checkUserAccess(): void {
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    this.http.get<any[]>(`http://localhost:8000/api/projects/${projectId}/access-requests`, { headers })
+    this.http.get<any[]>(`https://deploytestback-x8ma.onrender.com/api/projects/${projectId}/access-requests`, { headers })
       .subscribe(requests => {
         const existingRequest = requests.find(req => req.user_id == userId);
 
@@ -165,7 +165,7 @@ public checkUserAccess(): void {
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    this.http.post(`http://localhost:8000/api/projects/${projectId}/access-requests`, {}, { headers })
+    this.http.post(`https://deploytestback-x8ma.onrender.com/api/projects/${projectId}/access-requests`, {}, { headers })
       .subscribe(() => {
         console.log('Demande envoyée');
         this.requestStatus = 'pending';
@@ -182,7 +182,7 @@ public checkUserAccess(): void {
       data: { projectId: this.project.id }
     });
   }
-  
+
   openDialog(): void {
     alert('Fonctionnalité non implémentée');
   }
