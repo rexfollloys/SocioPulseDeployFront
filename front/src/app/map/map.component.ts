@@ -3,6 +3,13 @@ import { ProjectsService } from '../services/projects.service';
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {ProjectUpdateService} from '../services/project-update-service.service';
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'assets/marker-icon-2x.png',
+  iconUrl: 'assets/marker-icon.png',
+  shadowUrl: 'assets/marker-shadow.png'
+});
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',

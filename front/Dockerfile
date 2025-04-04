@@ -1,19 +1,20 @@
+# Utilisation d'une image Node.js
 FROM node:18
 
 # Définir le répertoire de travail
 WORKDIR /usr/src/app
 
-# Copier package.json et package-lock.json
+# Copier les fichiers nécessaires pour installer les dépendances
 COPY package*.json ./
 
-# Installer les dépendances en ignorant les dépendances optionnelles
-RUN npm install --ignore-scripts
+# Installer les dépendances dans le conteneur
+RUN npm install --legacy-peer-deps
 
-# Copier le reste de l'application
+# Copier le reste des fichiers (sans node_modules)
 COPY . .
 
-# Exposer le port sur lequel l'application va tourner
+# Exposer le port Angular
 EXPOSE 4200
 
-# Commande pour démarrer l'application
+# Commande pour démarrer l’application
 CMD ["npm", "start"]

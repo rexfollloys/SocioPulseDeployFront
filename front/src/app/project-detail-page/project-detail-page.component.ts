@@ -10,6 +10,12 @@ import 'leaflet/dist/leaflet.css';
 import { MatDialog } from '@angular/material/dialog';
 import { RendezVousModalComponent } from '../rendez-vous-modal/rendez-vous-modal.component';
 
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'assets/marker-icon-2x.png',
+  iconUrl: 'assets/marker-icon.png',
+  shadowUrl: 'assets/marker-shadow.png'
+});
+
 @Component({
   selector: 'app-project-detail-page',
   templateUrl: './project-detail-page.component.html',

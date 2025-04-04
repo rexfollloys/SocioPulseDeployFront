@@ -17,6 +17,12 @@ import 'leaflet/dist/leaflet.css';
 import {ProjectsService} from '../services/projects.service';
 import {ProjectUpdateService} from '../services/project-update-service.service';
 
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'assets/marker-icon-2x.png',
+  iconUrl: 'assets/marker-icon.png',
+  shadowUrl: 'assets/marker-shadow.png'
+});
+
 @Component({
   selector: 'app-project-maker-page',
   templateUrl: './project-maker-page.component.html',
