@@ -1,7 +1,6 @@
 import {Component, AfterViewInit, inject} from '@angular/core';
 import { ProjectsService } from '../services/projects.service';
 import * as L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import {ProjectUpdateService} from '../services/project-update-service.service';
 
 L.Icon.Default.mergeOptions({

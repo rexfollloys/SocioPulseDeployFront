@@ -6,7 +6,6 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import { MatDialog } from '@angular/material/dialog';
 import { RendezVousModalComponent } from '../rendez-vous-modal/rendez-vous-modal.component';
 
